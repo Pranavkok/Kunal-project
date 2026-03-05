@@ -28,6 +28,7 @@ function SigninForm() {
     try {
       const data = await signin(username, password);
       localStorage.setItem("wt_token", data.jwt);
+      localStorage.removeItem("wt_websites");
       router.push("/dashboard");
     } catch {
       setError("Invalid username or password.");
